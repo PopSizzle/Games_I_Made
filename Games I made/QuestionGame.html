@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        var userScore = 0
+
+        // Quiz array
+        var quiz = [
+            {q:"Is San Franciso in the US?", a:true}, 
+        {q:"Do whales live in the ocean?", a:true}, 
+        {q:"Is the sun cold?", a:false}, 
+        {q:"Are redwood trees tall?", a:true}, 
+        {q:"Did Michael Jordan play for the Bulls?", a:true}, 
+        {q:"Is water safe to drink?", a:true},
+        {q:"Do Orcas run on land", a:false}, 
+        {q:"Is my teacher an alien", a:false}, 
+        {q:"Does money grow on trees", a:false}, 
+        {q:"Is housing in San Francisco expensive?", a:true}];
+
+    alert("Wanna play a game?")
+    
+    // Start quiz loop
+    for(var i=0; i<quiz.length; i++) {
+        var answer=confirm(quiz[i].q);
+        // result of question
+        if(answer === quiz[i].a){
+            alert("Correct! Wowowow you so smart!")
+            userScore++;
+        }
+
+        else alert("That wrong Dum-Dum, be smarter next time!");
+
+    }
+
+    // alert if perfect score
+    if(userScore === 10){
+        alert("WHOA GENIUS ALERT OVER HERE! \nWE GOT A GENIUS OVER HERE! \nHEY EVERYBODY THIS PERSON IS REALLY SMART!!!")
+    }
+
+    // alert if score is 0<score<10
+    else if(userScore === 0){
+        alert("That's......I can't even.\n\nThat took some extra special skills.")
+    }
+
+    // alert if 0 score
+    else alert("Your score is " + userScore + " out of 10.\nThat's okay, I guess. \nI'm sure that you tried you best.")
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script type="text/javascript">
+        function rollD(x) {
+            return Math.ceil(Math.random()*x);
+        }
+
+        var fightMonster
+
+        var gorbash = {
+            race: "Half-Orc",
+            strength: 87,
+            intelligence: 19,
+            wisdom: 03,
+            charisma: 93,
+            dexterity: 52,
+            constitution: 73,
+            loves: "Belinda the Half-Elf",
+            fears: "Pink Flowers",
+            xp: 0
+        };
+
+        var belinda = {
+            race: "Half-Elf",
+            strength: 36,
+            intelligence: 82,
+            wisdom: 96,
+            dexterity: 17,
+            constitution: 42,
+            hates: "Gorbash the Half-Orc",
+            loves: "Catra",
+            fears: "Dying Alone",
+            xp: 0
+        };
+
+        var dragon = {
+            strength: 1000,
+            xpValue: 200,
+        };
+
+        var rat = {
+            strength: 100,
+            xpValue: 10,
+        };
+
+            function fight(hero,monster) {
+                var attack = hero.strength * rollD(20);
+                console.log(attack)
+                console.log(monster.strength)
+
+                if (attack > monster.strength) {
+                    alert(hero.name + " attack: " + attack + "\nMonster attack: " + monster.strength + "\n" + "You win!");
+                    hero.xp=hero.xp + monster.xpValue;
+                    alert("your hero now has " + hero.xp + " XP");
+                }
+
+                else alert("Gorbash strength: " + attack + "\nMonster attack: " + monster.strength + "\nGorbash Dies!");
+                gorbash.alive === false;
+                alert("GAME OVER!");
+        }
+
+        while (fightMonster !== null) {
+            fightMonster = prompt("What monster would you like to fight?");
+            entry = fightMonster.toLowerCase();
+            
+            if(entry === "dragon"){
+                fight(gorbash,dragon);
+                console.log(gorbash.xp);
+            }
+            
+            else if(entry === "rat"){
+                fight(gorbash,rat);
+                console.log(gorbash.xp);
+            }
+        }
+    
+    </script>
+    
+    
+
+</body>
+</html>

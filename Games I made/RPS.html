@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script type="text/javascript">
+        
+        // Array of Choices
+        
+        var choice= ["rock", "paper", "scissors"];
+        
+        // Declaration of Variables
+        
+        var computerScore = 0;
+
+        var userScore = 0;
+
+        var tieScore = 0;
+        
+        // Enter game
+        
+        alert("Wanna play a game?");
+    
+    // Loop Start
+    
+    for(var i=0; i < 10; i++){
+        
+        // prompt user choice
+        
+        var userChoice = prompt("Choose rock, paper, or scissors");
+
+        var userChoiceLower = userChoice.toLowerCase();
+        
+        // generate random computer choice
+
+        var randomNumber = Math.floor(Math.random()*3);
+
+        var computerChoice = choice[randomNumber];
+
+        // check if user choice is valid
+     
+        if (userChoiceLower === "rock" || userChoiceLower === "scissors" || userChoiceLower === "paper") {
+            
+            console.log(userChoiceLower);
+
+            console.log(computerChoice);
+        }
+
+        else {
+            alert("Invalid choice. Please refresh the page and choose again");
+        }
+
+        // compare user guess and computer guess
+
+        // User chooses rock
+        if (userChoiceLower === "rock"){
+
+            if(computerChoice === "rock"){
+                alert("Computer chose rock");
+                alert("Tie Game");
+                console.log("Tie");
+                tieScore++;
+                console.log(tieScore);
+            }
+
+            else if(computerChoice === "paper"){
+                alert("Computer chose paper");
+                alert("Computer Wins");
+                console.log("Computer Wins");
+                computerScore++;
+                console.log(computerScore);
+            }
+
+            else if(computerChoice === "scissors"){
+                alert("Computer chose scissors");
+                alert("User Wins");
+                console.log("User Wins");
+                userScore++;
+                console.log(userScore);
+            }
+        }
+        // User chooses paper
+        if (userChoiceLower === "paper"){
+
+            if(computerChoice === "paper"){
+                alert("Computer chose paper");
+                alert("Tie Game");
+                console.log("Tie");
+                tieScore++;
+                console.log(tieScore);
+            }
+
+            else if(computerChoice === "scissors"){
+                alert("Computer chose scissors");
+                alert("Computer Wins");
+                console.log("Computer Wins");
+                computerScore++;
+                console.log(computerScore);
+            }
+
+            else if(computerChoice === "rock"){
+                alert("Computer chose rock");
+                alert("User Wins");
+                console.log("User Wins");
+                userScore++;
+                console.log(userScore);
+            }
+        }
+        // User chooses scissors
+        if (userChoiceLower === "scissors"){
+
+            if(computerChoice === "scissors"){
+                alert("Computer chose scissors");
+                alert("Tie Game");
+                console.log("Tie");
+                tieScore++;
+                console.log(tieScore);
+            }
+
+            else if(computerChoice === "rock"){
+                alert("Computer chose rock");
+                alert("Computer Wins");
+                console.log("Computer Wins");
+                computerScore++;
+                console.log(computerScore);
+            }
+
+            else if(computerChoice === "paper"){
+                alert("Computer chose paper");
+                alert("User Wins");
+                console.log("User Wins");
+                userScore++;
+                console.log(userScore);
+            }
+        }
+
+        // SCOREBOARD!!!
+
+        alert("Computer Score: " + computerScore + "\nUser Score: " + userScore + "\nTies: " + tieScore)
+    }
+
+    document.write("GAME OVER")
+    
+    </script>
+
+
+    
+</body>
+</html>
