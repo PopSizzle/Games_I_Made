@@ -15,6 +15,7 @@
         var fightMonster
 
         var gorbash = {
+            name: "Gorbash",
             race: "Half-Orc",
             strength: 87,
             intelligence: 19,
@@ -24,10 +25,12 @@
             constitution: 73,
             loves: "Belinda the Half-Elf",
             fears: "Pink Flowers",
-            xp: 0
+            xp: 0,
+            alive: true,
         };
 
         var belinda = {
+            name: "Belinda",
             race: "Half-Elf",
             strength: 36,
             intelligence: 82,
@@ -37,8 +40,11 @@
             hates: "Gorbash the Half-Orc",
             loves: "Catra",
             fears: "Dying Alone",
-            xp: 0
+            xp: 0,
+            alive: true,
         };
+
+        var chosenHero = gorbash
 
         var dragon = {
             strength: 1000,
@@ -50,34 +56,36 @@
             xpValue: 10,
         };
 
-            function fight(hero,monster) {
-                var attack = hero.strength * rollD(20);
-                console.log(attack)
-                console.log(monster.strength)
+            function fight(monster) {
+                var attack = chosenHero.strength * rollD(20);
 
                 if (attack > monster.strength) {
-                    alert(hero.name + " attack: " + attack + "\nMonster attack: " + monster.strength + "\n" + "You win!");
-                    hero.xp=hero.xp + monster.xpValue;
-                    alert("your hero now has " + hero.xp + " XP");
+                    alert(chosenHero.name + " attack: " + attack + "\nMonster attack: " + monster.strength + "\n" + "You win!");
+                    chosenHero.xp=chosenHero.xp + monster.xpValue;
+                    alert("your hero now has " + chosenHero.xp + " XP");
                 }
 
-                else alert("Gorbash strength: " + attack + "\nMonster attack: " + monster.strength + "\nGorbash Dies!");
-                gorbash.alive === false;
+                else {
+                alert(chosenHero.name +" strength: " + attack + "\nMonster attack: " + monster.strength + "\n" + chosenHero.name + " Dies!");
+                chosenHero.xp = 0;
                 alert("GAME OVER!");
-        }
+                var newChoice = prompt("Choose a new hero")
+                newChoiceLower = newChoice.toLowerCase();
+                chosenHero = newChoiceLower;
+                alert("You new hero is " + chosenHero.name + "!");
+                }
+            }       
 
         while (fightMonster !== null) {
             fightMonster = prompt("What monster would you like to fight?");
             entry = fightMonster.toLowerCase();
             
             if(entry === "dragon"){
-                fight(gorbash,dragon);
-                console.log(gorbash.xp);
+                fight(dragon);
             }
             
             else if(entry === "rat"){
-                fight(gorbash,rat);
-                console.log(gorbash.xp);
+                fight(rat);
             }
         }
     
